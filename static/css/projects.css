@@ -1,0 +1,233 @@
+/* ═══════════════════════════════════════════════════════════
+   projects.css — Projects & Case Studies page
+   Uses only the tokens defined in color.css.
+════════════════════════════════════════════════════════════ */
+
+/* ── Filter bar ───────────────────────────────────────── */
+.pj-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+.pj-filter {
+  font-family: var(--f-body);
+  font-size: clamp(12px, 0.85vw, 14px);
+  font-weight: 500;
+  color: var(--c-text);
+  background: rgba(var(--rgb-surface), 0.45);
+  border: 1px solid rgba(var(--rgb-accent), 0.35);
+  border-radius: 50px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: var(--ease);
+}
+.pj-filter:hover { border-color: var(--c-accent-l); }
+.pj-filter.is-active {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: #ffffff;
+}
+.pj-filter .pj-count { opacity: 0.7; margin-left: 4px; }
+
+/* ── Section labels ───────────────────────────────────── */
+.pj-section { padding: 7vh 0; }
+.pj-kicker {
+  font-size: clamp(11px, 0.75vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-accent-l);
+  margin-bottom: 6px;
+}
+.pj-heading {
+  font-family: var(--f-display);
+  font-size: clamp(22px, 1.8vw, 32px);
+  font-weight: 800;
+  color: var(--c-white);
+  margin-bottom: 6px;
+}
+.pj-sub {
+  color: var(--c-muted);
+  font-size: clamp(13px, 0.95vw, 16px);
+  max-width: 640px;
+  margin-bottom: 28px;
+}
+
+/* ── Cards (extends .portfolio-card) ──────────────────── */
+.pj-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 2vw, 32px) !important;
+}
+.pj-card > * { position: relative; }
+.pj-card .pf-badge { font-size: clamp(11px, 0.75vw, 13px); padding: 4px 10px; align-self: flex-start; }
+.pj-card .pf-title { font-size: clamp(18px, 1.25vw, 22px); }
+.pj-card .pf-text  { font-size: clamp(14px, 0.95vw, 16px); }
+.pj-card .pf-num, .pj-card .pf-num-text { font-size: clamp(22px, 1.5vw, 28px); }
+.pj-card .pf-unit  { font-size: clamp(13px, 0.9vw, 16px); }
+.pj-card .pf-label { font-size: clamp(10px, 0.65vw, 12px); }
+.pj-card .pf-metric-card { padding: 12px 10px; }
+
+.pj-meta {
+  font-size: clamp(12px, 0.8vw, 14px);
+  color: var(--c-muted);
+  margin-bottom: 12px;
+}
+.pj-meta i { margin-right: 4px; }
+
+/* ── Case study (Problem / Approach / Result) ─────────── */
+.pj-case {
+  border-top: 1px solid var(--c-border);
+  margin-top: 6px;
+  padding-top: 4px;
+}
+.pj-case summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-weight: 600;
+  font-size: clamp(13px, 0.9vw, 15px);
+  color: var(--c-accent-l);
+}
+.pj-case summary::-webkit-details-marker { display: none; }
+.pj-case summary i { transition: transform var(--ease); }
+.pj-case[open] summary i { transform: rotate(180deg); }
+.pj-case dl { margin: 0 0 8px; }
+.pj-case dt {
+  font-size: clamp(11px, 0.7vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-accent-l);
+  margin-top: 12px;
+}
+.pj-case dd {
+  margin: 4px 0 0;
+  color: var(--c-text);
+  font-size: clamp(13px, 0.9vw, 15px);
+  line-height: 1.65;
+}
+.pj-case dd ul { padding-left: 18px; margin: 0; }
+.pj-case dd li { margin-bottom: 4px; }
+
+/* ── Action links ─────────────────────────────────────── */
+.pj-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+.pj-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: clamp(12px, 0.85vw, 14px);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--c-text);
+  border: 1px solid rgba(var(--rgb-accent), 0.45);
+  border-radius: 50px;
+  padding: 7px 14px;
+  transition: var(--ease);
+}
+.pj-btn:hover { border-color: var(--c-accent-l); color: var(--c-white); }
+.pj-btn--primary { background: var(--c-accent); border-color: var(--c-accent); color: #ffffff; }
+.pj-btn--primary:hover { color: #ffffff; filter: brightness(1.12); }
+
+/* ── Visual slot (dashboard / diagram screenshot) ─────── */
+.pj-visual {
+  display: block;
+  border-radius: var(--r);
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  background: rgba(var(--rgb-surface), 0.5);
+  margin-bottom: 16px;
+  aspect-ratio: 16 / 9;
+}
+.pj-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pj-visual iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* Placeholder until a real screenshot is added */
+.pj-visual--empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-style: dashed;
+  color: var(--c-muted);
+  font-size: clamp(12px, 0.8vw, 14px);
+  text-align: center;
+  padding: 16px;
+}
+.pj-visual--empty i { font-size: clamp(26px, 2vw, 34px); color: var(--c-accent-l); }
+
+/* ── Featured (OIKN) ──────────────────────────────────── */
+.pj-featured .pj-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.pj-featured .pj-visual-grid .pj-visual { margin-bottom: 0; aspect-ratio: 4 / 3; }
+.pj-featured .pj-visual-cap {
+  font-size: clamp(11px, 0.75vw, 13px);
+  color: var(--c-muted);
+  margin-top: 6px;
+  text-align: center;
+}
+.pj-note {
+  font-size: clamp(12px, 0.8vw, 13px);
+  color: var(--c-muted);
+  font-style: italic;
+  margin-top: 6px;
+}
+
+/* ── Draft marker (remove the class once real content is in) ── */
+.is-draft { outline: 2px dashed rgba(var(--rgb-accent-l), 0.5); outline-offset: -2px; }
+.pj-draft-tag {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-bg);
+  background: var(--c-accent-l);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+}
+
+/* ── Filtering ────────────────────────────────────────── */
+.pj-item.is-hidden { display: none !important; }
+.pj-empty { display: none; color: var(--c-muted); }
+.pj-empty.is-shown { display: block; }
+
+/* ── Small screens ────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .pj-section { padding: 5vh 0; }
+  .pj-featured .pj-visual-grid { grid-template-columns: 1fr; }
+  .pj-featured .pj-visual-grid .pj-visual { aspect-ratio: 16 / 9; }
+  .pj-card .pf-title { font-size: 18px; }
+  .pj-card .pf-text  { font-size: 14px; }
+  .pj-card .pf-num, .pj-card .pf-num-text { font-size: 19px; }
+  .pj-card .pf-metric-card { padding: 10px 6px; }
+  .pj-card .pf-label { font-size: 10px; }
+}
+
+/* Real screenshot: keep its own proportions, no crop */
+.pj-visual--shot { aspect-ratio: auto; background: #ffffff; margin-bottom: 6px; }
+.pj-visual--shot img { height: auto; object-fit: contain; transition: transform var(--ease); }
+.pj-visual--shot:hover img { transform: scale(1.015); }
+
+/* Icon placeholders (no screenshot yet): keep them compact */
+.pj-card > .pj-visual--empty { aspect-ratio: auto; min-height: 120px; flex-direction: row; gap: 10px; }
+
+/* OIKN diagrams: same-height thumbnails, whole diagram visible */
+.pj-featured .pj-visual-grid .pj-visual--fit { aspect-ratio: 4 / 3; padding: 8px; }
+.pj-featured .pj-visual-grid .pj-visual--fit img { width: 100%; height: 100%; object-fit: contain; }
